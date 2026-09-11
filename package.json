@@ -1,0 +1,136 @@
+{
+  "name": "@blcklab/anyo-avatar",
+  "version": "0.2.0",
+  "description": "Optional complete humanoid Avatar system for Anyo, including renderer-neutral runtime contracts, VRM 0.x/1.0 support, and explicit Sekai64 integrations.",
+  "keywords": [
+    "anyo",
+    "avatar",
+    "humanoid",
+    "3d",
+    "gltf",
+    "glb",
+    "sekai64",
+    "vrm",
+    "spatial-web"
+  ],
+  "license": "MIT",
+  "author": "blcklab",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./authoring": {
+      "types": "./dist/types/authoring/index.d.ts",
+      "import": "./dist/esm/authoring/index.js",
+      "require": "./dist/cjs/authoring/index.js"
+    },
+    "./sekai64": {
+      "types": "./dist/types/sekai64/index.d.ts",
+      "import": "./dist/esm/sekai64/index.js"
+    },
+    "./package.json": "./package.json",
+    "./sekai64-binding": {
+      "types": "./dist/types/sekai64-binding/index.d.ts",
+      "import": "./dist/esm/sekai64-binding/index.js"
+    },
+    "./contracts": {
+      "types": "./dist/types/contracts/index.d.ts",
+      "import": "./dist/esm/contracts/index.js",
+      "require": "./dist/cjs/contracts/index.js"
+    },
+    "./vrm": {
+      "types": "./dist/types/vrm/index.d.ts",
+      "import": "./dist/esm/vrm/index.js",
+      "require": "./dist/cjs/vrm/index.js"
+    },
+    "./vrm/sekai64": {
+      "types": "./dist/types/vrm/sekai64/index.d.ts",
+      "import": "./dist/esm/vrm/sekai64/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "generate:version": "node scripts/generate-version.mjs",
+    "build": "node scripts/build.mjs",
+    "typecheck": "npm run generate:version && tsc -p tsconfig.check.json --noEmit --pretty false",
+    "typecheck:examples": "tsc -p tsconfig.examples.json --pretty false",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "verify:boundaries": "node scripts/verify-boundaries.mjs",
+    "verify:package": "node scripts/verify-package.mjs",
+    "verify:stable": "node scripts/verify-stable.mjs",
+    "size": "node scripts/size.mjs",
+    "check": "npm run typecheck && npm run typecheck:examples && npm run test && npm run verify:boundaries && npm run verify:package && npm run verify:stable && npm run size",
+    "prepublishOnly": "npm run check"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "peerDependencies": {
+    "@blcklab/anyo": ">=0.9.1-0 <0.10.0 || >=0.10.0-0 <1.0.0",
+    "@blcklab/anyo-animation": ">=0.1.0 <0.2.0",
+    "@blcklab/sekai64": ">=0.8.0-0 <0.9.0"
+  },
+  "peerDependenciesMeta": {
+    "@blcklab/anyo-animation": {
+      "optional": true
+    },
+    "@blcklab/sekai64": {
+      "optional": true
+    },
+    "@blcklab/anyo": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@blcklab/anyo": "0.10.0-rc.1",
+    "@blcklab/anyo-animation": "0.1.1",
+    "@blcklab/sekai64": "0.8.0-rc.33",
+    "typescript": "^5.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blcklab/anyo-avatar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blcklab/anyo-avatar/issues"
+  },
+  "homepage": "https://github.com/blcklab/anyo-avatar#readme",
+  "typesVersions": {
+    "*": {
+      "contracts": [
+        "dist/types/contracts/index.d.ts"
+      ],
+      "sekai64-binding": [
+        "dist/types/sekai64-binding/index.d.ts"
+      ],
+      "sekai64": [
+        "dist/types/sekai64/index.d.ts"
+      ],
+      "authoring": [
+        "dist/types/authoring/index.d.ts"
+      ],
+      "vrm": [
+        "dist/types/vrm/index.d.ts"
+      ],
+      "vrm/sekai64": [
+        "dist/types/vrm/sekai64/index.d.ts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noEmit": true,
+    "skipLibCheck": false,
+    "baseUrl": ".",
+    "paths": {
+      "@blcklab/anyo-avatar": [
+        "src/index.ts"
+      ],
+      "@blcklab/anyo-avatar/sekai64": [
+        "src/sekai64/index.ts"
+      ],
+      "@blcklab/anyo-avatar/authoring": [
+        "src/authoring/index.ts"
+      ],
+      "@blcklab/anyo-avatar/contracts": [
+        "src/contracts/index.ts"
+      ],
+      "@blcklab/anyo-avatar/sekai64-binding": [
+        "src/sekai64-binding/index.ts"
+      ],
+      "@blcklab/anyo-avatar/vrm": [
+        "src/vrm/index.ts"
+      ],
+      "@blcklab/anyo-avatar/vrm/sekai64": [
+        "src/vrm/sekai64/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "examples/**/*.ts"
+  ]
+}
