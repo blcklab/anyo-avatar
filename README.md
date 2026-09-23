@@ -67,6 +67,25 @@ import { createSekai64VrmRuntime } from '@blcklab/anyo-avatar/vrm/sekai64'
 
 The historical `@blcklab/anyo-avatar-vrm` package is a compatibility facade for these exports.
 
+## Recommended package layering
+
+Use `@blcklab/anyo-avatar` as the reusable avatar-domain package. Keep application UI, camera controls, portfolio/studio presentation, and framework lifecycle outside the core.
+
+```text
+@blcklab/anyo-avatar
+  └─ avatar contracts, humanoid/VRM semantics, normalization, expressions, look-at, attachments
+     and explicit renderer integration subpaths
+
+@blcklab/anyo-avatar-viewer
+  └─ framework-independent viewer/presentation runtime: camera, navigation, rendering profile,
+     animation playback, recovery, screenshots/fullscreen and browser lifecycle
+
+@blcklab/anyo-avatar-vue
+  └─ Vue host adapter/components/composables and optional UI
+```
+
+For an Anyo world or game runtime, prefer the core package directly. For a standalone portfolio/avatar screen, prefer Avatar Viewer. In a Vue application, use Avatar Vue and let it delegate avatar behavior to Viewer/Core rather than duplicating avatar logic in Vue.
+
 ## Package entry points
 
 ```text

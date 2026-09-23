@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 — S24 compatibility refresh
+
+- Validated the existing renderer-neutral Avatar runtime against the frozen S24 Anyo ecosystem baseline.
+- Refresh development baselines to Anyo `0.10.0-rc.3`, Anyo Animation `0.1.3`, and Sekai64 `0.8.0-rc.34`.
+- Keep the existing public peer ranges and runtime API unchanged; those ranges already admit the S24 package line.
+- Clarify the recommended package layering: Avatar core for reusable avatar semantics, Avatar Viewer for framework-independent presentation, and framework adapters for host UI only.
+
 ## 0.2.0 — Complete Avatar package
 
 - Publish-prep: accept Anyo 0.10 prereleases in the peer range.
